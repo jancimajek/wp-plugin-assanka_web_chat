@@ -1,0 +1,27 @@
+.webchat-lozenge {
+	font-family: Arial, helvetica, sans-serif;
+	visibility: visible;
+	padding: 2px 7px 2px 7px;
+	margin-right: 5px;
+	color: white;
+	text-shadow: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 1;
+	position: relative;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
+.webchat-inprogress {
+	background: #cc0000;
+}
+
+.webchat-closed {
+	background: #333333;
+}
+
+.webchat-comingsoon {
+	background: #9e2f50;
+}

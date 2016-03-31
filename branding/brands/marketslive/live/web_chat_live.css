@@ -1,0 +1,83 @@
+/* web_chat_live.css */
+
+/**
+ * Note: The vertical spacing of the elements in the live chat template must be pixel-accurate for
+ * automatic scrolling to work properly. Don't change the top or bottom padding or margins.
+ */
+
+.chat-panel .participant-options { display:none; position: absolute; right: 1px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background: #eee; padding: 0px 5px; }
+.chat-panel .participant-option-delete { margin: 0 0 0 2px; padding: 0 0 0 4px; border-left: 1px solid #A7A59B; }
+.chat-panel .show-participant-options .participant-options { display:block; }
+
+.webchat-container { width: 100%; background: #FFF1E0; }
+
+#webchat-session { position: relative; padding-top: 8px; }
+
+#webchat-session .loader { position: absolute; top: 0; left: 0; padding-top: 280px; padding-bottom: 140px; text-align: center; width: 970px; background: url(/wp-content/plugins/assanka_web_chat/img/logo.png) 50% 50% no-repeat }
+
+#webchat-session .chat-panel { visibility:hidden; margin-right: 370px; padding-bottom: 10px; }
+#webchat-session .comments-panel { visibility: hidden; float: right; width: 360px; border-left: 1px solid #E7DECF; overflow:hidden }
+#webchat-session .comments-panel.livefyre-commenting { border: none; background-color: #f6e9d8; }
+#webchat-session .footer { visibility: hidden; border-top: 1px solid #CCC2B5; text-align: left; clear:both; padding: 3px 0 10px 0; font-weight: bold; }
+
+#webchat-session .participantui { display: none }
+#webchat-session .participantui .emoticons { padding: 10px 0; width: 455px; }
+#webchat-session .participantui .emoticons ul { margin:0; padding:0; height: 38px}
+#webchat-session .participantui .emoticons li { list-style-type:none; display:inline }
+#webchat-session .participantui .emoticons li img { cursor: pointer; height: 15px; }
+#webchat-session .participantui form { overflow: hidden; width: 595px; padding: 5px 0 0 0; margin: 0; }
+#webchat-session .participantui .options { overflow: hidden; float: right; width: 130px; }
+#webchat-session .participantui .options .check { margin-right: 3px; }
+#webchat-session .participantui textarea { float: left; width: 450px; height: 75px; font-family: sans-serif; font-size: 0.9em; outline: none; resize: vertical }
+#webchat-session .participantui input.button { width: 80px; }
+#webchat-session.participant .participantui { display:block }
+
+/* Only show session options if the participant has sufficient permissions */
+.session-options { display: none }
+.participant-is-editor .session-options { display:block; }
+
+#webchat-session .participantui .wiki-key { float: right; width: 134px; color: #A7A59B; line-height: 1; padding-top: 2px; font-size: 11px; }
+#webchat-session .participantui .wiki-key .highlight { color: black; font-family: monospace; padding: 0 2px; }
+
+#webchat-session .chat-panel .scroll-sync { float: right; }
+#webchat-session .chat-panel .scroll-sync input { margin-right: 3px; position: relative; top: +2px }
+#webchat-session .chat-panel h2 { padding-bottom: 10px; font-size: 15px; font-weight: bold; height: 30px; overflow: hidden; text-overflow:ellipsis; margin-bottom: 0; }
+#webchat-session .chat-panel .wrapper { border:1px solid #ccc; height: 320px; overflow: hidden; }
+#webchat-session .chat-panel .wrapper .webchat-closed-content { border: none; }
+#webchat-session .chat-panel .chat { background: white; height: 100%; overflow: auto; position: relative; }
+#webchat-session .chat-panel .chat .msg { position: relative }
+#webchat-session .chat-panel .chat .msg .block { background-color: #FFF; display: none; border: 1px solid #aaa; padding: 0px 3px; border-radius: 3px; cursor: pointer; color: #888; font-size: 80%; position: absolute; top: 5px; right: 5px }
+#webchat-session .chat-panel .chat .msg .block:hover { border-color: red; color:red }
+#webchat-session .chat-panel .chat .msg.prepub .block { display: block }
+#webchat-session .chat-panel .chat .blocked { background-color: #EBDFDF; border-top: 1px dotted #DB908E; border-bottom: 1px dotted #DB908E; margin-top: -1px; }
+#webchat-session .chat-panel .chat .blocked > div { background-color: #EBDFDF; }
+#webchat-session .chat-panel .chat .blocknotice { padding: 5px 10px; display: block; text-align: right; margin-top: -24px; text-transform: uppercase; font-weight: bold; font-size: 10px; color: red; }
+
+#webchat-session .footer .participant-list li { white-space: no-wrap; display: inline; margin-right: 10px }
+#webchat-session .footer .participant-list li span { margin-right: 5px }
+
+#webchat-session .comments-panel .show-hide-toggle { display:block; height:7px; position:static; width:100%; border-top:1px solid #CCC2B5; cursor: pointer }
+#webchat-session .comments-panel .show-hide-toggle.hide { background: url('/wp-content/plugins/assanka_web_chat/img/infernoclose.png') 50% 50% no-repeat; }
+#webchat-session .comments-panel .show-hide-toggle.show { display: none; background: url('/wp-content/plugins/assanka_web_chat/img/infernoopen.png') 50% 50% no-repeat; }
+
+/* Ad spots within webchat template */
+#webchat-session #ribbonad { padding: 0 10px; margin-bottom: 10px; text-align: center; display: none }
+
+/* Inferno style overrides */
+#inferno-comments { padding-left: 10px; }
+#inferno-input { padding: 0 0 10px 10px; }
+#inferno-input form { margin: 0 !important; padding: 0 !important; position: static !important;}
+
+/* =Print
+-------------------------------------------------------------- */
+@media print {
+	#webchat-session .participantui,
+	#webchat-session .loader,
+	#webchat-session .comments-panel .show-hide-toggle,
+	#webchat-session .comments-panel #inferno-input
+		{ display: none !important; }
+	#webchat-session .chat-panel
+	#webchat-session .comments-panel
+	#webchat-session .footer
+		{ overflow: visible !important; position: static !important; width: auto !important; height: auto !important; float: none !important; background: none !important; margin: 0 !important; border: none !important }
+}

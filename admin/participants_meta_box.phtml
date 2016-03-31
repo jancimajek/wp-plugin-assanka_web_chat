@@ -1,0 +1,95 @@
+<?php
+//@todo: Refactor this document into appropriate templates.
+
+// Render rows for existing participants or for adding a new participant
+function getParticipantRowHTML($participant = null) {
+	$brand = Assanka_WebchatBrand::getForPostType(get_post_type());
+	$rowClass = (!$participant) ? "new-row new-row-template" : null;
+	$disabled = ($participant && $participant->is_wp_user) ? "disabled" : null;
+	$html  = '<tr data-participant-user_id="'.$participant->user_id.'" class="'.$rowClass.'">';
+	$html .= '<td><input data-name="user_id" type="hidden" '.$disabled.' value="'.$participant->user_id.'" />';
+	$html .= '<input data-name="display_name" type="text" '.$disabled.' value="'.$participant->display_name.'" /></td>';
+	$html .= '<td><input data-name="initials" type="text" '.$disabled.' value="'.$participant->initials.'" /></td>';
+	$html .= '<td><input data-name="email" type="text" '.$disabled.' value="'.$participant->email.'" /><span title="Invalid email" class="message">!</span></td>';
+	if ($brand->allowparticipantheadshots) {
+		if (!empty($participant->headshot)) {
+			$headshotButtonClass = "hasHeadshot";
+		}
+		$html .= '<td class="'.$headshotButtonClass.'">';
+		$html .= '<div class="headshot-image " style="background: url('.$participant->headshot.') center center no-repeat;"></div>';
+		if (!$participant || !$participant->is_wp_user) {
+			$html .= '<a class="button upload-image-button-remove" title="Remove the headshot image for this Participant">Remove</a>';
+			$html .= '<a class="button upload-image-button" title="Upload Image of any size to the media library, select ‘Participant headshot (35 × 45)’ and ‘Insert into Post’.">Add head shot</a>';
+			$html .= '<input data-name="headshot" type="hidden" '.$disabled.' value="'.$participant->headshot.'" />';
+		}
+		$html .= '</td>';
+	}
+	$html .= '<td align="right">';
+	if ($participant->is_wp_user) {
+			// @todo: if WP is > 3.5, then use: get_edit_user_link($participant->user_id);
+			$html .= '<a title="Edit user profile for '.$participant->display_name.' in new tab" target="_blank" href="'.home_url().'/wp-admin/user-edit.php?user_id='.$participant->user_id.'">WordPress user profile</a>';
+	} else {
+		$html .= '<input data-name="token" type="hidden" '.$disabled.' value="'.$participant->token.'" />'.$participant->participantLink.$participant->emailLink;
+		$html .= '<label class="delete-participant" title="Delete this Participant and all their messages from this session.">Delete <input data-name="delete_user_id" type="checkbox" value="'.$participant->user_id.'" /></label>';
+		$html .= '<div class="message delete-message">This participant and all their messages will be will be deleted.</div>';
+	}
+	$html .= '</td></tr>';
+	echo $html;
+}
+?>
+<div class="participants-metabox-container">
+	<p>
+		<em>Participants</em> can add, edit, delete and block live messages (like a WordPress Editor).
+		To invite a Participant to this session, give them their unique permalink.
+	</p>
+	<p>
+		<em>WordPress Editors</em> are Participants by default.
+		<?php if ($brand->allowparticipantheadshots) : ?>
+		Note: Their <a title="How to Use Gravatars in WordPress" target="_blank" href="http://codex.wordpress.org/How_to_Use_Gravatars_in_WordPress">head shots are set automatically</a>.
+		<?php endif; ?>
+	</p>
+	<table class="wp-list-table widefat fixed participants" cellspacing="0">
+		<thead>
+			<th scope="col" class="manage-column column-displayname"><span>Display name</span></th>
+			<th scope="col" class="manage-column column-initials"><span>Initials</span></th>
+			<th scope="col" class="manage-column column-email">Email</th>
+			<?php if ($brand->allowparticipantheadshots): ?>
+			<th scope="col" class="manage-column column-headshot">Head shot</th>
+			<?php endif ?>
+			<th scope="col" class="manage-column column-permalink"></th>
+		</thead>
+		<tbody>
+			<?php
+			$participants = $this->getParticipants();
+			if( !empty($participants) ) {
+				foreach( $participants as $participant ) {
+					if (!empty($participant->display_name) and !empty($participant->token)) {
+						$participant->participantLink  = '<a title="Click to open the unique permalink for '.$participant->display_name.' (in a new tab)." href="'.post_permalink().'?participant_token='.$participant->token.'" target="_blank">Permalink</a> • ';
+						if (!empty($participant->email)) {
+							$postTitle    = html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8');
+							$emailSubject = rawurlencode(get_bloginfo('name').' — Participant link for '.$participant->display_name);
+							$emailBody    = rawurlencode("Hello ".$participant->display_name.",".PHP_EOL.PHP_EOL);
+							$emailBody   .= rawurlencode('You\'re invited to participate in our '.$brand->singular_name.' session: "'.$postTitle.'". ');
+							$emailBody   .= rawurlencode('Here\'s your participant link: '.PHP_EOL.PHP_EOL);
+							$emailBody   .= rawurlencode(post_permalink().'?participant_token='.$participant->token.PHP_EOL.PHP_EOL);
+							$emailBody   .= rawurlencode('This is a unique link that gives you special access, so you can post messages during the session. '.PHP_EOL.PHP_EOL);
+							$emailBody   .= rawurlencode('Please don\'t share it with anyone. '.PHP_EOL.PHP_EOL);
+							$participant->emailLink  = '<a title="Click to open a draft email that includes the permalink (which you can send to '.$participant->display_name.')." target="_blank" href="mailto:'.$participant->email;
+							$participant->emailLink .= '?subject='.$emailSubject;
+							$participant->emailLink .= '&body='.$emailBody;
+							$participant->emailLink .= '">Draft email</a> • ';
+						}
+					}
+					echo getParticipantRowHTML($participant);
+				}
+			}
+			// This is an empty copy for adding new Participants.
+			echo getParticipantRowHTML();
+			?>
+		</tbody>
+	</table>
+	<p class="meta-ui">
+		<a class="button addrowfornewparticipant">Add a row for a new Participant</a>
+		<span class="saveorpublish-notice">Unsaved. <strong>Save Draft</strong> / <strong>Publish</strong> / <strong>Update</strong> to apply changes.</span>
+	</p>
+</div>

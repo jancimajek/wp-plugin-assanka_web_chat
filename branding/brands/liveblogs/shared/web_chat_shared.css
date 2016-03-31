@@ -1,0 +1,75 @@
+/* web_chat_shared.css */
+.msg .headshot-image { display: inline-block; width: 35px; height: 45px; vertical-align: middle; margin: 3px 10px 0px 0px; float: left; }
+.has-headshot blockquote { margin-left: 58px !important; }
+
+.webchat-liveness-marker {
+	visibility: hidden;
+}
+body.webchat-finished .webchat-live-session .webchat-liveness-marker {
+	display:none;
+}
+body.webchat-on-air .webchat-live-session .webchat-liveness-marker {
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 11px;
+	top: -3px;
+	padding: 1px 6px;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	display:inline;
+	font-weight: bold;
+}
+
+/* Colors */
+span.color-0  { color: #95EF8F; }
+span.color-1  { color: #0000CC; }
+span.color-2  { color: #990000; }
+span.color-3  { color: #336633; }
+span.color-4  { color: #FF6633; }
+span.color-5  { color: #9900FF; }
+span.color-6  { color: #417DAF; }
+span.color-7  { color: #A86839; }
+span.color-8  { color: #0EF147; }
+span.color-9  { color: #DD2222; }
+span.color-10 { color: #0059FF; }
+span.color-11 { color: #FC5CEC; }
+
+span.webchat-byline { padding-left: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 0.75em; font-weight: bold;}
+
+#webchat-session { border: 0; }
+.webchat-introduction,
+.sysmsg {  background-color:#f6e9d8;  border-top:1px dotted #a7a59b;  border-bottom:1px dotted #a7a59b; padding: 15px 20px 10px; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333; }
+.webchat-introduction .entry-meta { margin: 0px; font-size: 12px !important; }
+.webchat-post-excerpt { padding: 0; min-height: 21px; }
+.webchat-post-excerpt p { margin-bottom:0px; padding-bottom:0px; }
+
+.webchat-container .messageheader { margin-bottom: 6px; }
+.webchat-container .twitter-tweet-rendered { margin: 0 0 20px 0 !important; }
+
+.webchat-container blockquote .twitter-tweet-rendered { margin: 0 !important; }
+.webchat-container blockquote .embeddedftvideo,
+.webchat-container blockquote .embeddedvinevideo
+.webchat-container blockquote .embeddedyoutubevideo { width: 100%; text-align: center; }
+
+.webchat-container .hentry { padding: 0; margin-bottom: 10px; }
+.webchat-container .msg img[alt="Emoticon"],
+.webchat-container .msg img.emoticon { margin: -1px 5px; }
+.webchat-container .msg .block { display: none; }
+.webchat-container .pwebchat-sessionarticipant-options { display:none; }
+.webchat-container .webchat-participant { text-transform:uppercase; font-weight:bold; }
+.webchat-container .embeddedtweet blockquote { background-color: transparent; }
+
+#webchat-session .webchat-emoticon-breaking-news { margin:-1px 5px 0 0; }
+
+#hlfmpu { margin-top:20px; }
+
+#livechatcomments { margin-bottom: 20px; min-height: 154px; }
+#livechatcomments #inferno-wrapper #inferno-commentlist {  padding-top: 8px !important; margin-top: 8px !important; max-height: 500px; }
+#livechatcomments #inferno-wrapper .title { display: none; }
+
+#livechatcomments #inferno-postform .footer { line-height: 1.4; }
+#livechatcomments #inferno-postform textarea { width: 325px; }
+#livechatcomments #inferno-postform .medium a { background-position: left -90px; padding: 0 4px; display: inline-block; }
+#livechatcomments #inferno-postform .medium a span { padding: 0 4px 0 2px; font-size: 14px !important; line-height: 24px; font-weight: bold; }
+#livechatcomments #inferno-postform .medium a > span { background-position: right -64px; }
+
+#livechatcomments .widgetcontent { padding-top: 0; }

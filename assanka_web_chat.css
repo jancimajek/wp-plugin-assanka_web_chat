@@ -1,0 +1,56 @@
+body.webchat-on-air .webchat-liveness-marker {
+	visibility: visible;
+	background: #E90505;
+	padding: 3px 5px 2px 5px;
+	color: white;
+	text-shadow: none;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 13px;
+	line-height: 1;
+	top: -1px;
+	position: relative;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.webchat-lozenge {
+	font-family: Arial, helvetica, sans-serif;
+	visibility: visible;
+	padding: 2px 7px 2px 7px;
+	margin-right: 5px;
+	color: white;
+	text-shadow: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 1;
+	top: -3px;
+	position: relative;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
+.webchat-inprogress {
+	background: #cc0000;
+}
+
+.webchat-closed {
+	background: #333333;
+}
+
+.webchat-comingsoon {
+	background: #9e2f50;
+}
+
+.webchat-container .fixed-height {
+	overflow-y: auto;
+}
+
+#webchat-session .webchat-connectmsg-nomessage {
+	display:none;
+}
+
+.webchat-container .morevideo {
+	display: none;
+}

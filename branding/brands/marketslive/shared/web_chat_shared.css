@@ -1,0 +1,121 @@
+
+.webchat-container > .inner {
+	float: left;
+}
+
+span.color-0 { color: #95EF8F }
+span.color-1 { color: #0000CC }
+span.color-2 { color: #990000 }
+span.color-3 { color: #336633 }
+span.color-4 { color: #FF6633 }
+span.color-5 { color: #9900FF }
+span.color-6 { color: #417DAF }
+span.color-7 { color: #A86839 }
+span.color-8 { color: #0EF147 }
+span.color-9 { color: #DD2222 }
+span.color-10 { color: #0059FF }
+span.color-11 { color: #FC5CEC }
+
+
+.webchat-closed-content {
+	border: 1px solid #CCC; border-radius: 5px; overflow: hidden;
+}
+
+.hentry .webchat-content .entry-utility {
+	border-top:none;
+}
+
+/* Live chat */
+.chat .webchat-closed-content {
+	border: none; border-radius: 0;
+}
+
+.webchat-closed-content .msg,
+#webchat-session .msg {
+	background-color: #EAEAEA; border-bottom: 1px solid #F3F3F3; font-size: 12px; line-height: 1.4; overflow: hidden;
+}
+
+.webchat-closed-content .msg p,
+#webchat-session .msg p {
+	margin-bottom: 0;
+}
+.webchat-closed-content .msg blockquote p,
+#webchat-session .msg blockquote p {
+	margin-bottom: 0.7em;
+}
+
+.webchat-closed-content .msg .block,
+#webchat-session .msg .block {
+	display: none;
+}
+.webchat-closed-content .msg > span.par,
+#webchat-session .msg > span.par {
+	float: left;
+	width: 40px;
+	text-align: right;
+	font-weight: bold;
+	line-height: 2;
+	padding: 0px 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.webchat-closed-content .msg > div,
+#webchat-session .msg > div {
+	background-position: 20px 5px;
+	background-repeat: no-repeat;
+	background-color: #f3f3f3;
+	padding: 5px 5px 5px 55px;
+}
+.webchat-closed-content .msg.normal > div,
+#webchat-session .msg.normal > div,
+.webchat-closed-content .msg.blockquote > div,
+#webchat-session .msg.blockquote > div {
+	background-color: #FFF;
+	padding: 5px;
+	margin-left: 50px;
+}
+
+.webchat-closed-content .msg blockquote,
+#webchat-session .msg blockquote {
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	background-image: none;
+	background-color: #F0F0F0;
+	padding: 12px 12px 4px;
+	margin: 10px;
+	font-style: italic;
+}
+.webchat-closed-content .msg img[alt="Emoticon"],
+#webchat-session .msg img[alt="Emoticon"],
+.webchat-closed-content .msg img.emoticon,
+#webchat-session .msg img.emoticon {
+	margin: -3px 5px;
+}
+.webchat-closed-content .msg img.picture,
+#webchat-session .msg img.picture {
+	max-width: 95%;
+	border: 1px solid #888;
+	padding: 2px;
+	background-color: white;
+}
+.webchat-closed-content .msg.price > div,
+#webchat-session .msg.price > div {
+	background-position: 25px 3px;
+	background-image: url(/wp-content/plugins/assanka_web_chat/img/chaticons/charticon.png);
+}
+.webchat-closed-content .msg.sysmsg > div,
+#webchat-session .msg.sysmsg > div {
+	background-image: url(/wp-content/plugins/assanka_web_chat/img/chaticons/loudhailer.png);
+}
+
+.hentry {
+	border-bottom: none;
+}
+.hentry .entry-utility {
+	border-top: none;
+}
+
+#webchat-session .video-container-vine {
+	margin-left: 56px;
+	width: 430px;
+	padding-bottom: 430px;
+}

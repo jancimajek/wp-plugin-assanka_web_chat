@@ -1,0 +1,75 @@
+/* web_chat_live.css */
+
+.webchat-header h2.entry-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 25px; margin: 0 0 6px 0; padding: 1px 0 0 0; line-height:32px; }
+ul.participant-list { margin: 0px !important; display: inline; }
+.participant-list li { display: inline; }
+.participant-list li span { margin-right: 5px }
+
+/* Only show participant-specific elements when viewing as a participant */
+.participantui, .participantbrowserwarning, .session-options, .key-label { display:none; }
+.participant .participantui, .participant .participantbrowserwarningie { display:block; }
+
+/* Only show session options if the participant has sufficient permissions */
+.participant-is-editor .session-options { display:block; }
+.participant-is-editor .key-label,  .participant-is-editor .key-message { display:inline-block; }
+
+.participantbrowserwarning { border:1px solid black; background-color:orange; padding:5px 10px; }
+.participantui { margin: 10px 0 10px; border-bottom: 1px solid #E9DECF; padding-bottom: 15px; }
+.participantui,
+.webchat-msg-editform { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.participantui .link-container { border-bottom: 1px solid #E9DECF; margin-bottom: 2px; }
+.participantui form { overflow: hidden; width: 595px; padding: 5px 0 0 0; margin: 0; }
+.participantui label { vertical-align: bottom; }
+.participantui textarea,
+.webchat-msg-editform textarea { float: left; width: 450px; height: 75px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; outline: none; resize: vertical; }
+.participantui input.button,
+.webchat-msg-editform input.button { margin: 3px 0; width: 100%; font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
+.webchat-msg-editform input.btn-cancel { border: 0px; padding: 0; background: transparent; text-align: left; font-size: 12px; color: #2E6E9E; border-bottom: 1px solid #E9DECF; padding-bottom: 2px; }
+.webchat-msg-editform input.btn-cancel:hover { color: black; }
+.participantui .emoticons { margin-top: 8px; width: 455px; }
+.participantui .emoticons ul { margin:0; padding:0; height: 38px; }
+.participantui .emoticons li { list-style-type:none; display:inline; }
+.participantui .emoticons li img { cursor: pointer; height: 15px; }
+.participantui .options,
+.webchat-msg-editform .options { overflow: hidden; float: right; width: 130px; }
+.webchat-msg-editform .options { width: 135px; }
+.participantui .wiki-key { float: right; width: 134px; color: #A7A59B; line-height: 1; padding-top: 2px; font-size: 11px; }
+.participantui .wiki-key .highlight { color: black; font-family: monospace; padding: 0 2px; }
+
+.chat-panel .participant-options { display:none; float:right; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.chat-panel .participant-option-delete { margin: 0 0 0 2px; padding: 0 0 0 4px; border-left: 1px solid #A7A59B; }
+.chat-panel .show-participant-options .participant-options { display:block; }
+
+.chat-panel .msg { position: relative }
+.chat-panel .msg .block { display: none; border: 1px solid #aaa; padding: 0px 3px; border-radius: 3px; cursor: pointer; color: #888; font-size: 80%; position: absolute; top: 5px; right: 5px }
+.chat-panel .msg .block:hover { border-color: red; color:red }
+.chat-panel .msg.prepub .block { display: block }
+.chat-panel .blocked { background-color: #EBDFDF; border-top: 1px dotted #DB908E; border-bottom: 1px dotted #DB908E; margin-top: -1px; }
+.chat-panel .blocked > div { background-color: #EBDFDF; }
+.chat-panel .blocknotice { padding: 5px 10px; display: block; text-align: right; margin-top: -24px; text-transform: uppercase; font-weight: bold; font-size: 10px; color: red; }
+
+.chat-panel .sysmsg { font-size: 12px; padding-bottom: 14px; margin-top: 10px; }
+.comments-panel .show-hide-toggle { display:block; height:7px; position:static; width:100%; border-top:1px solid #CCC2B5; cursor: pointer }
+.comments-panel .show-hide-toggle.hide { background: url('/wp-content/plugins/assanka_web_chat/img/infernoclose.png') 50% 50% no-repeat; }
+.comments-panel .show-hide-toggle.show { display: none; background: url('/wp-content/plugins/assanka_web_chat/img/infernoopen.png') 50% 50% no-repeat; }
+
+/* Right hand rail external JS widget override */
+#topArticles { padding:0 !important; margin:0 !important; }
+
+/* Ad spots within webchat template */
+#ribbonad { padding: 0 10px; margin-bottom: 10px; text-align: center; display: none }
+
+/* Key event textarea, show only if box ticked */
+.master-column input[type="text"].key-text, .key-text { float:left; display: none; margin-top: 5px; width: 448px; padding: 3px 1px 3px 3px;}
+.master-column input[type="text"].key-text { width: 450px; }
+
+/* =Print
+--------------------------------------------------------------*/
+@media print {
+	.participantui,
+	.loader,
+	.comments-panel .show-hide-toggle,
+	.comments-panel #inferno-input {
+		display: none !important;
+	}
+}

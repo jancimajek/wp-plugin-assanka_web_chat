@@ -1,0 +1,6 @@
+#webchatMessageBylines { overflow: auto; }
+#webchatMessageBylines fieldset fieldset { margin-left:10px; padding:10px; }
+.example-images { display:inline-block; }
+.message-options { float:left; margin-right:2em; }
+#side-sortables .example-images { display:none !important; }
+#normal-sortables .example-images div { display:none; }
