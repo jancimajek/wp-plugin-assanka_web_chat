@@ -1,0 +1,16 @@
+{
+  "name": "jancimajek/wp-plugin-assanka_web_chat",
+  "description": "Wp using composer",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Jan Majek",
+      "email": "jan.majek@gmail.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
